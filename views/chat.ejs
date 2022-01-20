@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/public/main.css" rel="stylesheet">
+
+    <title>Hello, world!</title>
+
+    <style>
+
+.chat-content {
+  height: 450px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+.chat-content li {
+  margin-top: 10px;
+  list-style: none;
+}
+.text-small {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 0;
+}
+.chat-box {
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+  float: left;
+}
+.mine {
+  float: right;
+} 
+    </style>
+
+  </head>
+  <body>
+    <%- include('nav.html') %>
+
+    <div class="container p-4 detail">
+
+      <div class="row">
+        <div class="col-3">
+          <ul class="list-group chat-list">
+
+            <% for (var i=0; i < data.length ; i++){ %>
+              <li class="list-group-item" data-id="<%= data[i]._id %>">
+                <h6> <%= data[i].title %> </h6>     
+                <h6 class="text-small"> <%= data[i].member[0] %> </h6>
+              </li>
+            <% } %>
+             
+           
+          
+          </ul> 
+         </div>
+    
+         <div class="col-9 p-0">
+           <div class="chat-room">
+              <ul class="list-group chat-content">
+                <li><span class="chat-box">채팅방1 내용</span></li>
+                <li><span class="chat-box">채팅방1 내용</span></li>
+                <li><span class="chat-box mine">채팅방1 내용</span></li>
+              </ul>
+            <div class="input-group">
+              <input class="form-control" id="chat-input">
+              <button class="btn btn-secondary" id="send">전송</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div> 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
